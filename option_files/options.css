@@ -1,0 +1,467 @@
+/*---------general+title---------*/
+body{
+    display: flex;
+    justify-content: center;
+    height:100%;
+    width: 100%;
+    background-color: black;
+    overflow:visible;
+}
+
+h1,h2{
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    color: white;
+    margin:0;
+}
+
+h2{
+    font-size: 22px;
+}
+
+h1#title{
+    top:10px;
+}
+
+h2#make_scheme_title{
+    top:75px;
+}
+
+hr{
+    width: 60%;
+    position: absolute;
+}
+
+hr#ruler_1{
+    top: 45px;
+}
+
+/*----------------save color scheme table------------*/
+table{
+    position: absolute;
+    width: 60%;
+    top: 115px;
+}
+
+table, th, td{
+    border:1px solid white;
+    border-collapse: collapse;
+}
+
+th{
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.th_div{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty_cell{
+    border: 1px solid transparent !important;
+}
+
+.color_input,.color_input_name,th{
+    color: white;
+}
+
+.cell_wrapper{
+    display: flex;
+    height: 75px;  
+    justify-content: center;
+}
+
+
+.color_input_cell{
+    display: flex;
+    width:66%;
+    text-align: left;
+    transform: translateY(5px)
+}
+
+.color_input_name{
+    width: 90%;
+    transform: translateX(5px);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+input[type="text"][name="color_input"]{
+    position: absolute;
+    transform: translateY(45px) translateX(5px);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    width:75%;
+    top: -3px;
+    color: #DDDDDD;
+    outline: none !important;
+    background-color: #000000;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px;
+    transition-duration: 0.2s;
+}
+
+input[type="text"][name="color_input"]:focus{
+    background-color: #292929;
+    box-shadow: inset 0px 0px 3px 1px white;
+}
+
+.show_color{
+    width: 34%;
+    height:100%;
+    background-color: black;
+    display: flex;
+    text-align: center;
+    border-left: 1px solid white;
+}
+
+.error{
+    display: flex;
+    background-color: rgba(255,0,0,0.5);
+    color:white;
+    height:100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+}
+
+.no_error{
+    display: none;
+}
+
+/*----------------save color scheme buttons------------*/
+.save_scheme, .test_scheme, .saved_flash_msg{
+    top: 960px;
+    height: 50px;
+    position: absolute;
+    color: white;
+    border-radius: 5px;
+    font-family:'Times New Roman', Times, serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.save_scheme, .test_scheme{
+    display: flex;
+    width: 150px;
+    background-color: black;
+    border:1px solid white;
+    font-size: 18px;
+    transition-duration: 0.3s;
+}
+
+.save_scheme:hover, .test_scheme:hover{
+    background-color: #292929;
+}
+
+.test_scheme{
+    left:20.5%;
+}
+
+.save_scheme{
+    right:19.5%
+}
+
+.preset_amt{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    box-shadow: inset 0px 0px 10px 3px #6C0000;
+    font-family:'Times New Roman', Times, serif;
+    border-radius: 5px;
+    top:960px;
+    font-size: 18px;
+    height:50px;
+    width: 220px;
+    background-color: black;
+    right: 33%;
+}
+
+.preset_amt.error{
+    display: flex;
+}
+
+.preset_amt.no_error{
+    display: none;
+}
+
+hr#ruler_2{
+    top: 1030px;
+}
+
+/*-------------save scheme flash msg-------------------*/
+.saved_flash_msg{
+    display: flex;
+    opacity: 0;
+    width: 120px;
+    background-color: transparent;
+    font-size: 20px;
+    left: 33%;
+    box-shadow: inset 0px 0px 10px 2px white;
+}
+.saved_flash_msg.start{
+    opacity: 0;
+}
+
+.saved_flash_msg.show{
+    opacity: 1;
+}
+
+.saved_flash_msg.hide{
+    opacity: 1;
+    animation: save_hide 2s ease-in forwards;
+}
+
+@keyframes save_hide {
+    100%{
+        opacity: 0;
+    }
+}
+
+/*-------------delete schemes----------------*/
+h2#delete_scheme_title{
+    top:1060px;
+}
+
+.delete_schemes{
+    position: absolute;
+    width: 50%;
+    /* border: 1px solid red; */
+    top: 1110px;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.center_wrapper{
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+}
+
+input[type="radio"]{
+    display:none;
+}
+
+.select_scheme_label{
+    pointer-events: all;
+    --button_size:40px;
+    background-color: black;
+    width:var(--button_size);
+    height:var(--button_size);
+    display: inline-block;
+    box-sizing: border-box;
+    transform: rotate(45deg);
+}
+
+.select_scheme{
+    width:var(--button_size);
+    height:var(--button_size);
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border: 2px solid #898989;
+    transition-duration: 0.3s;
+}
+
+.select_scheme_label input:checked + .select_scheme{
+    border: 5px solid #DDDDDD !important;
+}
+
+.select_scheme:hover{
+    border: 5px solid #ABABAB;
+}
+
+.color_name{
+    display: flex;
+    pointer-events: none;
+    width:99px;
+    height:40px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    z-index: 2;
+}
+
+.select_scheme_label+.color_name{
+    position: absolute;
+    visibility: hidden;
+    transition: 0.5s;
+    color:transparent;
+}
+
+.select_scheme_label+.color_name:before{
+    visibility: hidden;
+    color:transparent;
+}
+
+.select_scheme_label:hover+.color_name{
+    visibility: visible;
+    color:white;
+    box-shadow: inset 0px 0px 5px 3px white;
+    border-radius: 5px;
+    border-left-color: transparent;
+    transform: translateX(73px);
+    background-color: black;
+}
+
+.delete_schemes .select_scheme:not(:hover), .delete_schemes .select_scheme:not(:hover):before{
+    transition: 0.5s;
+}
+
+
+.delete_schemes:hover .select_scheme:not(:hover){
+    background-color:rgba(0,0,0,0.8);
+    border:1px solid black;
+}
+
+input[type="radio"]:disabled+.select_scheme, input[type="radio"]:disabled+.select_scheme:hover{
+    border: none !important;
+}
+
+/*-------------bottom_spacer----------------*/
+.bottom_spacer{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    top: 1180px;
+    height: 80px;
+    justify-content: center;
+}
+
+.delete_scheme_button{
+    display: none;
+    pointer-events: all;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    background-color: black;
+    border:1px solid white;
+    font-size: 18px;
+    transition-duration: 0.3s;
+    color: white;
+    border-radius: 5px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.delete_scheme_button:hover{
+    background-color: #292929;
+}
+
+/*---------------name popup------------------*/
+.popup_cover{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(18,18,18,0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    overflow-y: scroll;
+}
+
+.save_popup{
+    display: flex;
+    width: 400px;
+    height: 200px;
+    background-color: #000000;
+    border-radius: 10px;
+    position: relative;
+    justify-content: center;
+    border: 1px solid #DDDDDD;
+}
+
+.close{
+    display: flex;
+    font-size:20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #DDDDDD;
+    background-color: #000000;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 8px;
+    right: 7px;
+    color:#DDDDDD;
+    cursor: default;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.close:hover{
+    background-color: #343434;
+}
+
+input[name="preset_name"]{
+    top: 75px;
+    position: absolute;
+    color: #DDDDDD;
+    outline: none !important;
+    background-color: #000000;
+    border: 1px solid #DDDDDD;
+    font-size: 18px;
+    font-style: italic;
+    border-radius: 3px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+input[name="preset_name"]:focus{
+    background-color: #343434 !important;
+}
+
+input[name="preset_name"]::placeholder{
+    color: #454545;
+    font-style: italic;
+}
+
+input[name="save_button"]{
+    display: flex;
+    width: 100px;
+    background-color: black;
+    border:1px solid white;
+    font-size: 18px;
+    transition-duration: 0.3s;
+    height: 30px;
+    position: absolute;
+    color: white;
+    border-radius: 5px;
+    font-family:'Times New Roman', Times, serif;
+    align-items: center;
+    justify-content: center;
+    top: 130px;
+}
+
+input[name="save_button"]:hover{
+    background-color: #343434;
+}
+
+.popup_title1{
+    position: absolute;
+    color: white;
+    top:25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+p{
+    position: absolute;
+    top: -18px;
+}
