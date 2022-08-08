@@ -1,0 +1,35 @@
+{
+    "name": "Yami",
+    "description": "Google Docs dark mode editor",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions":["activeTab", "tabs", "storage"],
+    "content_scripts":[
+        {
+            "matches":["https://docs.google.com/document/*"],
+            "js":["content.js"]
+        }
+    ],
+    "action":{
+        "default_popup": "popup_files/popup.html",
+        "default_icon": {
+            "16": "./images/yami-16.png",
+            "32": "./images/yami-32.png",
+            "48": "./images/yami-48.png",
+            "128": "./images/yami-128.png"
+          }
+    },
+    "icons": {
+        "16": "./images/yami-16.png",
+        "32": "./images/yami-32.png",
+        "48": "./images/yami-48.png",
+        "128": "./images/yami-128.png"
+    },
+    "options_page": "option_files/options.html",
+    "web_accessible_resources": [
+        {
+            "resources":["colors.txt"],
+            "matches":["<all_urls>"]
+        }
+    ]
+}
